@@ -31,6 +31,7 @@ html {
   --special-color: #906272;
   --background-color: #414141;
   --grey-text-color: #525252;
+  scroll-behavior: smooth;
 }
 
 h1 {
@@ -281,6 +282,73 @@ nav {
   text-align: center;
 }
 
+/** CONTACT SECTION */
+.contact {
+  min-height: 90vh;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form-wrapper {
+  flex: 3 1 40rem;
+}
+
+.form-wrapper h2 {
+  margin: 5rem 0rem;
+}
+
+.form-wrapper span {
+  font-size: var(--big-font-size);
+  color: var(--special-color);
+}
+
+.form-wrapper label {
+  display: block;
+}
+
+.form-wrapper input {
+  display: block;
+  margin: 3rem 0rem;
+  background: var(--background-color);
+  color: white;
+  border: none;
+  padding: 1rem;
+}
+
+.form-wrapper button {
+  padding: 1rem 8rem;
+  background: var(--special-color);
+  color: white;
+  border: none;
+  width: 100%;
+}
+
+.contact img {
+  flex: 1 1 40rem;
+}
+
+/** FOOTER SECTION */
+footer {
+  background: var(--background-color);
+  color: white;
+  display: flex;
+  padding: 3rem 5%;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+footer ul {
+  display: flex;
+  flex: 1 1 40rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer h4 {
+  flex: 3 1 40rem;
+  font-size: calc(1.4rem + 1 vw);
+}
+
 /** MEDIA QUERY */
 @media screen and (max-width: 842px) {
   .hero {
@@ -295,6 +363,7 @@ nav {
   .burger {
     position: relative;
     display: block;
+    cursor: pointer;
   }
 
   .burger span {
@@ -323,37 +392,22 @@ nav {
     transition: transform 1s ease;
   }
 
-  .menu-check {
-    display: block;
-    position: absolute;
-    top: 50%;
-    right: 5%;
-    transform: translate(5%, -50%);
-    width: 5rem;
-    height: 5rem;
-    cursor: pointer;
-    opacity: 0;
-    z-index: 100;
-  }
-
-  .menu-check:checked + .nav-links {
+  .nav-open {
     transform: translateX(-100%);
   }
 
-  .menu-check:checked ~ .burger span {
-    background-color: white;
-  }
-
-  .menu-check:checked ~ .burger span:nth-child(1) {
+  .toggle .line1 {
     transform: rotateZ(45deg) translateY(300%);
+    color: white;
   }
 
-  .menu-check:checked ~ .burger span:nth-child(2) {
+  .toggle .line2 {
     opacity: 0;
   }
 
-  .menu-check:checked ~ .burger span:nth-child(3) {
+  .toggle .line3 {
     transform: rotateZ(-45deg) translateY(-300%);
+    color: white;
   }
 
   /** MQ ABOUT SECTION */
@@ -373,5 +427,31 @@ nav {
 
   .gallery-head {
     display: none;
+  }
+
+  /** MQ CONTACT SECTION */
+  .contact img {
+    display: none;
+  }
+
+  footer ul {
+    order: 1;
+  }
+
+  footer h4 {
+    order: 2;
+    text-align: center;
+    padding-top: 1rem;
+  }
+
+  @media screen and (min-width: 1700px) {
+    html {
+      --header1-font-size: 3rem;
+      --header2-font-size: 5rem;
+      --header3-font-size: 4rem;
+      --header4-font-size: 3rem;
+      --text-font-size: 3rem;
+      --big-font-size: 8rem;
+    }
   }
 }
